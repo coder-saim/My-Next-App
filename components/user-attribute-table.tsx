@@ -17,8 +17,7 @@ export function UserAttrubuteTable({ userAttributes }: any) {
   const [loading, setLoading] = useState(false);
 
   return (
-    <div className={userAttributes && Object.keys(userAttributes).length === 0 ? 'flex justify-center' : ''}>
-      
+    <div className={userAttributes && Object.keys(userAttributes).length === 0 ? 'flex justify-center' : ''}> 
      
       {loading ? (
         <DashboardEmptyRow colSpan={5}>
