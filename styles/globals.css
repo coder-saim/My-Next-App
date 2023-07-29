@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .select--trigger{
+      @apply inline-flex items-center justify-center  space-x-2 rounded-md px-4 py-1 shadow-md 
+    }
+}
