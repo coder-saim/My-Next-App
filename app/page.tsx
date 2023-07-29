@@ -23,15 +23,11 @@ import { Card } from "@/components/ui/card"
 import { StatusChip } from "@/components/status-chip"
 import Link from "next/link"
 import { getTimeDiffFromDateString } from "@/utils/date-utils"
-
-
-
-
-
-
 // export const metadata = {
 //   title: "Dashboard",
 // }
+
+
 
 export default async function DashboardPage() {
   const [models, setModels] = useState<Array<Model>>([])
