@@ -18,7 +18,7 @@ export default function DashboardPage() {
     {} as ModelDetails
   )
   const [error, setError] = useState(false)
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(!true)
   const params = useParams()
 
   const modelName = params?.modelName
@@ -30,38 +30,38 @@ export default function DashboardPage() {
   }
 
   console.log("akihsufdnhswaifdusnhdiksndsikjdbncdbjksn", modelDetails)
-  useEffect(() => {
-    async function getModelDetails() {
-      const session = await getSession()
+  // useEffect(() => {
+  //   async function getModelDetails() {
+  //     const session = await getSession()
 
-      // if (!session?.user) {
-      //   redirect("/login")
-      // }
+  //     // if (!session?.user) {
+  //     //   redirect("/login")
+  //     // }
 
-      try {
-        const { apiKey } = await getOrganizationInfo()
-        if (!apiKey) {
-          setLoading(false)
-          setError(true)
-          return
-        }
+  //     try {
+  //       const { apiKey } = await getOrganizationInfo()
+  //       if (!apiKey) {
+  //         setLoading(false)
+  //         setError(true)
+  //         return
+  //       }
 
-        const headers = { "x-api-key": `${apiKey}` }
-        const resp = await axios(`/api/models/${modelName}`, {
-          headers: headers,
-        })
-        setLoading(false)
+  //       const headers = { "x-api-key": `${apiKey}` }
+  //       const resp = await axios(`/api/models/${modelName}`, {
+  //         headers: headers,
+  //       })
+  //       setLoading(false)
 
-        if (!resp.data.success) setError(true)
-        else setModelDetails(resp.data.data)
-      } catch (error) {
-        setError(true)
-        setLoading(false)
-        console.log("Error occurred while fetching model details : ", error)
-      }
-    }
-    getModelDetails()
-  }, [])
+  //       if (!resp.data.success) setError(true)
+  //       else setModelDetails(resp.data.data)
+  //     } catch (error) {
+  //       setError(true)
+  //       setLoading(false)
+  //       console.log("Error occurred while fetching model details : ", error)
+  //     }
+  //   }
+  //   getModelDetails()
+  // }, [])
 
   return (
     <DashboardShell>

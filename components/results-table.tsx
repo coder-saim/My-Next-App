@@ -83,7 +83,7 @@ export function ResultsTable({results}: any) {
                       </DashboardTableCell>
 
                       <DashboardTableCell className="w-[20%] underline">
-                        {item.Description}
+                        {item.Description}//DescriptionModal
                       </DashboardTableCell>
 
                       <DashboardTableCell className="w-[20%]">
