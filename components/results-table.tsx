@@ -6,6 +6,7 @@ import {
   DashboardTableCell,
   DashboardEmptyRow,
 } from "./dashboard-table";
+import DescriptionModal from "./description-modal";
 import { MessageBox } from "./message-box";
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
@@ -71,7 +72,7 @@ export function ResultsTable({results}: any) {
               </tr>
             </thead>
             <tbody className="relative  divide-y divide-gray-200">
-              {records.map((item: any, index: number) => {
+              {records.map((item: ResultsModel, index: number) => {
                 return (
                   <>
                     <tr
@@ -83,7 +84,7 @@ export function ResultsTable({results}: any) {
                       </DashboardTableCell>
 
                       <DashboardTableCell className="w-[20%] underline">
-                        {item.Description}//DescriptionModal
+                        {item.Description.length <= 10 ? item.Description : <DescriptionModal/>}
                       </DashboardTableCell>
 
                       <DashboardTableCell className="w-[20%]">

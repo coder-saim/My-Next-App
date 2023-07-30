@@ -1,11 +1,27 @@
-import React from 'react'
+import { SchemaSection } from "./model-schema-section";
+import { ModelSummarySection } from "./model-summary-section";
+import { StatusBanner } from "./status-banner";
+import { ModelDetails } from "@/types";
+import React, { useState } from "react";
 
 const DescriptionModal = () => {
+  const [modelDetails, setModelDetails] = useState<ModelDetails>(
+    {} as ModelDetails
+  );
   return (
     <div>
-      flexx bro...
-    </div>
-  )
-}
+      <ModelSummarySection modelDetails={modelDetails} />
 
-export default DescriptionModal
+      <StatusBanner
+        title={`Model`}
+        description={"hello"}
+        elapsedTime=""
+        totalElapsedTime=""
+      />
+
+      <SchemaSection modelDetails={modelDetails} />
+    </div>
+  );
+};
+
+export default DescriptionModal;
