@@ -9,25 +9,34 @@ const DescriptionModal = () => {
     {} as ModelDetails
   );
 
-  const handleClick = () =>{
-    console.log('clicked...')
-  }
+  const [clickable, setClickable] = useState(false);
+
+  const handleClick = () => {
+    console.log("clicked...");
+    setClickable(true);
+  };
 
   return (
     <div>
-      <button className="text-black underline" onClick={handleClick}>Click to view</button>
-      
+      <button className="text-black underline" onClick={handleClick}>
+        Click to view
+      </button>
+      {clickable ? (
+        <>
+          <ModelSummarySection modelDetails={modelDetails} />
 
-      {/* <ModelSummarySection modelDetails={modelDetails} />
+          <StatusBanner
+            title={`Model`}
+            description={"hello"}
+            elapsedTime=""
+            totalElapsedTime=""
+          />
 
-      <StatusBanner
-        title={`Model`}
-        description={"hello"}
-        elapsedTime=""
-        totalElapsedTime=""
-      />
-
-      <SchemaSection modelDetails={modelDetails} /> */}
+          {/* <SchemaSection modelDetails={modelDetails} /> */}
+        </>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };
