@@ -8,9 +8,17 @@ const DescriptionModal = () => {
   const [modelDetails, setModelDetails] = useState<ModelDetails>(
     {} as ModelDetails
   );
+
+  const handleClick = () =>{
+    console.log('clicked...')
+  }
+
   return (
     <div>
-      <ModelSummarySection modelDetails={modelDetails} />
+      <button className="text-black underline" onClick={handleClick}>Click to view</button>
+      
+
+      {/* <ModelSummarySection modelDetails={modelDetails} />
 
       <StatusBanner
         title={`Model`}
@@ -19,7 +27,7 @@ const DescriptionModal = () => {
         totalElapsedTime=""
       />
 
-      <SchemaSection modelDetails={modelDetails} />
+      <SchemaSection modelDetails={modelDetails} /> */}
     </div>
   );
 };

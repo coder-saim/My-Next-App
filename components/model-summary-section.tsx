@@ -3,10 +3,10 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "./ui/button"
-import { StatusChip } from "./status-chip"
+//import { StatusChip } from "./status-chip"
 import { ModelDetails, Organization } from "@/types"
 import { IconTitle } from "./ui/icon-title"
-import { getTimeDiffFromDateString } from "@/utils/date-utils"
+//import { getTimeDiffFromDateString } from "@/utils/date-utils"
 import * as Dialog from "@radix-ui/react-dialog"
 import { Outline } from "./outline"
 import { Icons } from "./icons"
@@ -211,15 +211,15 @@ export function ModelSummarySection({
         <div className="mt-3 flex w-[40%] justify-between">
           <div className="flex-col space-y-1">
             <IconTitle title="Status" iconName="status" />
-            <StatusChip status={modelDetails.status} />
+            {/* <StatusChip status={modelDetails.status} /> */}
           </div>
 
           <div className="flex-col space-y-1">
             <IconTitle title="Created" iconName="terminal" />
 
-            <div className="text-grey-900">
+            {/* <div className="text-grey-900">
               {getTimeDiffFromDateString(modelDetails?.created_at)}
-            </div>
+            </div> */}
           </div>
         </div>
 

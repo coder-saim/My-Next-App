@@ -13,7 +13,7 @@ import { Card } from "./ui/card";
 import { ResultsModel } from "@/types";
 import React, { useEffect, useState } from "react";
 
-export function ResultsTable({results}: any) {
+export function ResultsTable({ results }: any) {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -22,9 +22,6 @@ export function ResultsTable({results}: any) {
   const lastIndex = currentPage * recordsPerPage;
   const firstIndex = lastIndex - recordsPerPage;
   const records = results.slice(firstIndex, lastIndex);
-  
-
-
 
   const handleNextPage = () => {
     if (currentPage !== 5) setCurrentPage(currentPage + 1);
@@ -37,7 +34,9 @@ export function ResultsTable({results}: any) {
   };
 
   return (
-    <div className={results && results.length === 0 ? 'flex justify-center' : ''}>
+    <div
+      className={results && results.length === 0 ? "flex justify-center" : ""}
+    >
       {loading ? (
         <DashboardEmptyRow colSpan={5}>
           <div className="grid w-full gap-10">
@@ -62,9 +61,12 @@ export function ResultsTable({results}: any) {
           <table className="w-full">
             <thead>
               <tr>
-                {Object.keys(results[0]).map((keyName,idx) => {
+                {Object.keys(results[0]).map((keyName, idx) => {
                   return (
-                    <DashboardTableHeader key={idx} className="w-[25%] p-4 bg-white text-sm font-medium normal-case text-black">
+                    <DashboardTableHeader
+                      key={idx}
+                      className="w-[25%] p-4 bg-white text-sm font-medium normal-case text-black"
+                    >
                       {keyName}
                     </DashboardTableHeader>
                   );
@@ -84,7 +86,11 @@ export function ResultsTable({results}: any) {
                       </DashboardTableCell>
 
                       <DashboardTableCell className="w-[20%] underline">
-                        {item.Description.length <= 10 ? item.Description : <DescriptionModal/>}
+                        {item.Description.length <= 10 ? (
+                          item.Description
+                        ) : (
+                          <DescriptionModal />
+                        )}
                       </DashboardTableCell>
 
                       <DashboardTableCell className="w-[20%]">
@@ -112,22 +118,25 @@ export function ResultsTable({results}: any) {
           results && results.length != 0 ? (
             <>
               <div className="pt-8 pb-6 flex flex-row justify-between">
-                <div>Showing {firstIndex+1} to {lastIndex} of {results.length} results</div>
+                <div>
+                  Showing {firstIndex + 1} to {lastIndex} of {results.length}{" "}
+                  results
+                </div>
                 <div className="flex flex-row space-x-4">
-                <Button disabled={firstIndex + 1 === 1 ? true : false}
+                  <Button
+                    disabled={firstIndex + 1 === 1 ? true : false}
                     className="bg-white text-black border border-slate-200 hover:bg-white"
                     onClick={handlePrevPage}
                   >
                     Previous
                   </Button>
                   <Button
-                  disabled={lastIndex === results.length ? true : false}
+                    disabled={lastIndex === results.length ? true : false}
                     className="bg-white text-black border border-slate-200 hover:bg-white"
                     onClick={handleNextPage}
                   >
                     Next
                   </Button>
-                  
                 </div>
               </div>
             </>
