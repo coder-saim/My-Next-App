@@ -24,7 +24,7 @@ export function ResultsTable({ results }: any) {
   const records = results.slice(firstIndex, lastIndex);
 
   const handleNextPage = () => {
-    if (currentPage !== 5) setCurrentPage(currentPage + 1);
+    if (currentPage < Math.ceil(results.length/5)) setCurrentPage(currentPage + 1);
     console.log("next" + currentPage);
   };
 
@@ -119,7 +119,7 @@ export function ResultsTable({ results }: any) {
             <>
               <div className="pt-8 pb-6 flex flex-row justify-between">
                 <div>
-                  Showing {firstIndex + 1} to {lastIndex} of {results.length}{" "}
+                  Showing {firstIndex + 1} to {Math.min(results.length,lastIndex)} of {results.length}{" "}
                   results
                 </div>
                 <div className="flex flex-row space-x-4">
@@ -131,7 +131,7 @@ export function ResultsTable({ results }: any) {
                     Previous
                   </Button>
                   <Button
-                    disabled={lastIndex === results.length ? true : false}
+                    disabled={Math.min(results.length,lastIndex) === results.length ? true : false}
                     className="bg-white text-black border border-slate-200 hover:bg-white"
                     onClick={handleNextPage}
                   >

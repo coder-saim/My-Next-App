@@ -24,7 +24,7 @@ export function UserInteractionsTable({ userInteractions }: any) {
 
 
   const handleNextPage = () => {
-    if (currentPage !== 5) setCurrentPage(currentPage + 1);
+    if (currentPage < Math.ceil(userInteractions.length/5)) setCurrentPage(currentPage + 1);
     console.log("next" + currentPage);
   };
 
@@ -98,28 +98,32 @@ export function UserInteractionsTable({ userInteractions }: any) {
           </DashboardTableWrapper>
         </>
       )}
+
+
       {!loading ? (
         !error ? (
           userInteractions && userInteractions.length != 0 ? (
             <>
               <div className="pt-8 pb-6 flex flex-row justify-between">
-                <div>Showing {firstIndex+1} to {lastIndex} of {userInteractions.length} results</div>
+                <div>
+                  Showing {firstIndex + 1} to {Math.min(userInteractions.length,lastIndex)} of {userInteractions.length}{" "}
+                  results
+                </div>
                 <div className="flex flex-row space-x-4">
-                <Button
-                disabled={firstIndex + 1 === 1 ? true : false}
+                  <Button
+                    disabled={firstIndex + 1 === 1 ? true : false}
                     className="bg-white text-black border border-slate-200 hover:bg-white"
                     onClick={handlePrevPage}
                   >
                     Previous
                   </Button>
                   <Button
-                  disabled={lastIndex === userInteractions.length ? true : false}
+                    disabled={Math.min(userInteractions.length,lastIndex) === userInteractions.length ? true : false}
                     className="bg-white text-black border border-slate-200 hover:bg-white"
                     onClick={handleNextPage}
                   >
                     Next
                   </Button>
-                  
                 </div>
               </div>
             </>

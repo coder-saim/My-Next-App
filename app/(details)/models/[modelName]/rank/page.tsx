@@ -362,20 +362,20 @@ export default function DashboardPage() {
         Label: 1,
         Timestamp: "2023-01-22 23:02:12",
       },
-      {
-        Item_ID: "12fd-343hff-flksdj-sfsd43",
-        Description: "Click to view",
-        Genre: "Back Pain",
-        Label: 1,
-        Timestamp: "2023-01-22 23:02:12",
-      },
-      {
-        Item_ID: "12fd-343hff-flksdj-sfsd43",
-        Description: "Click to view",
-        Genre: "Back Pain",
-        Label: 1,
-        Timestamp: "2023-01-22 23:02:12",
-      },
+      // {
+      //   Item_ID: "12fd-343hff-flksdj-sfsd43",
+      //   Description: "Click to view",
+      //   Genre: "Back Pain",
+      //   Label: 1,
+      //   Timestamp: "2023-01-22 23:02:12",
+      // },
+      // {
+      //   Item_ID: "12fd-343hff-flksdj-sfsd43",
+      //   Description: "Click to view",
+      //   Genre: "Back Pain",
+      //   Label: 1,
+      //   Timestamp: "2023-01-22 23:02:12",
+      // },
     ]);
 
     setResults([
@@ -448,6 +448,13 @@ export default function DashboardPage() {
         Genre: "Comedy",
         Created_at: "2023-01-22 23:02:12",
         Score: 0.98,
+      },
+      {
+        Item_ID: "a132-1jklf-8978-93j4-j3l43l",
+        Description: "Click to view",
+        Genre: "Comedy",
+        Created_at: "2023-01-22 23:02:12",
+        Score: 0.99,
       },
       {
         Item_ID: "a132-1jklf-8978-93j4-j3l43l",
