@@ -6,6 +6,7 @@ import {
   DashboardTableCell,
   DashboardEmptyRow,
 } from "./dashboard-table";
+import DescriptionModal from "./description-modal";
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
 import { InteractionsUserModel } from "@/types";
@@ -75,7 +76,12 @@ export function UserInteractionsTable({ userInteractions }: any) {
                         </DashboardTableCell>
 
                         <DashboardTableCell className="w-[20%] underline">
-                          {item.Description}
+                          
+                          {item.Description.length <= 10 ? (
+                          item.Description
+                        ) : (
+                          <DescriptionModal />
+                        )}
                         </DashboardTableCell>
 
                         <DashboardTableCell className="w-[20%]">
